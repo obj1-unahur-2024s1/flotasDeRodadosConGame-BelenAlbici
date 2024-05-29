@@ -29,56 +29,51 @@ class Kwid{
 }
 
 object trafic{
-	var property capacidad
-	var property velocidadMax
 	const property color= "blanco"
 	var property peso=4000
-	const interior
-	const motor
+	var interior = interiorComodo
+	const capacidad = interior.capacidad()
+	var motor= motorPolenta
+	const  velocidadMax =motor.velocidadMax()
+	
 	
 	 method capacidad(){
-		return capacidad=interiorComodo.capacidad()
-		
+		return capacidad
 	}
 	
 	
 	method velocidadMax(){
-		return if (motor=="polenta"){velocidadMax=130}else{80}
+		return velocidadMax
 	}
 	
 	method peso(){
-		return peso + 
+		return peso + interior.peso() + motor.peso() 
 	}
-	 
-
-
-}
-
-object interior{
-	var capacidad
 	
-	method cantPersonas(){
-		return capacidad
+	method cambiarInterior(nuevoInterior){
+		interior = nuevoInterior
 	}
+
+	method cambiarMotor(nuevoMotor){
+		motor = nuevoMotor
+	}
+
 }
+
+
 
 object interiorComodo{
 	const property capacidad = 5
 	const property peso = 700
-	
 }
-
 object interiorPopular{
 	const property capacidad=12
 	const property peso= 1000
 }
-
-
 object motorPolenta{
 	const property velocidadMax=130
 	const property peso= 80
 }
-
 object motorBataton{
 	const property velocidadMax=80
 	const property peso= 500
